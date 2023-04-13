@@ -16,7 +16,6 @@
 	"devDependencies": {
 		"@wordpress/scripts": "^26.0.0"
 	},
-	"type": "module",
 	"scripts": {
 		"dev": "wp-scripts start --webpack-src-dir=modules --webpack-copy-php",
 		"build": "wp-scripts build --webpack-src-dir=modules --webpack-copy-php",
