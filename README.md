@@ -2,6 +2,8 @@
 
 WP Pronotron is a modular WordPress plugin that I have written. It includes features which I have integrated into almost every website that I build.
 
+[![Build WP Pronotron Plugin](https://github.com/yunusbayraktaroglu/wp-pronotron/actions/workflows/ci.yml/badge.svg)](https://github.com/yunusbayraktaroglu/wp-pronotron/actions/workflows/ci.yml)
+
 ### Modules
 
 #### Art direction images module
