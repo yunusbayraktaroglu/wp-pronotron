@@ -1,0 +1,60 @@
+name: Build WP Pronotron Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+      
+jobs:
+  build:
+    name: Build process
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # Build
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build plugin modules
+      run: npm run build
+
+
+    # Create 'wp-pronotron' folder and move plugin content into it, than create zip
+    - name: Control Zip-Unzip packages
+      run: zip --version
+
+    - name: Create plugin builded folder
+      run: |
+        mkdir wp-pronotron
+        ls
+        mv wp-pronotron.php includes build readme.txt README.md wp-pronotron
+
+    - name: Create zip
+      run: zip -r wp-pronotron.zip wp-pronotron
+
+
+    # Release
+    - name: Create Github released
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload release to Github Releases
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./wp-pronotron.zip
+          asset_name: wp-pronotron-${{ github.ref_name }}.zip
+          asset_content_type: application/zip

@@ -1,0 +1,116 @@
+.toplevel_page_pronotron-settings [for*="_size_"] {
+    min-width: 10em;
+    vertical-align: baseline;
+}
+
+fieldset.flex {
+	display: flex;
+	flex-direction: row;
+}
+
+fieldset.flex div + div,
+fieldset .button-add {
+	margin-left: 20px;
+}
+
+input.reset-settings {
+	float: right;
+}
+
+
+
+.wp-core-ui .button-remove {
+	background: #cb0000;
+	border-color: #cb0000;
+	color: white;
+	color: white;
+    min-height: auto;
+    font-size: 8px;
+    padding: 5px;
+    line-height: 1;
+}
+
+.flex-middle {
+	display: flex;
+	align-items: center;
+
+	& > * + * {
+		margin-left: 10px !important;
+	}
+}
+
+
+.fieldset-wrapper {
+	margin-top: 1.5em;
+}
+
+.fieldset-list {
+
+	fieldset + fieldset {
+		margin-top: 10px;
+	}
+
+}
+
+.control-image-sizes {
+
+	label {
+		min-width: 5em;
+	}
+
+	.fieldset-list {
+
+		& > fieldset {
+			display: flex;
+			align-items: center;
+
+			& > * + * {
+				margin-left: 10px;
+			}
+		}
+	}
+
+}
+
+
+
+
+.wporg_row {
+	label {
+		min-width: 10em;
+	}
+	input {
+		margin: 0 0 1em;
+	}
+}
+
+
+
+fieldset.extendable {
+	float: left;
+	display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 120px);
+
+	& > fieldset {
+		display: inline-flex;
+		align-items: flex-start;
+	}
+
+	label {
+		vertical-align: baseline;
+		min-width: 10px !important;
+	}
+	input {
+		margin: 0 0 0.5em;
+	}
+
+	.wp-core-ui & ~ button {
+		background: #15910c;
+		border-color: #15910c;
+	}
+
+
+}
+
+ 
